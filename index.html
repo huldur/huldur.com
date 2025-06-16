@@ -1,84 +1,438 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
+<html lang="is">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kammerkórinn Huldur</title>
+  <style>
+    :root {
+      --gold: #c9b037; /* warm gold */
+      --green: #2a5d34; /* rich forest green */
+      --black: #121212; /* near black but softer */
+      --white: #fff;
+    }
 
-<html>
-	<head>
-		<title>Huldur Chamber Choir</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="css/temp.css" />  
-        	<link rel="icon" type="image/png" href="icons/huldur%20cover%20icon.png">
-        
-	</head>
-	<body>
-        <header id="header">
-            <a href="https://huldur.is" style="position: fixed; top: 12.5px; left: 10px;">
-                <button class="enbutt">Íslenska
-                    <img id="enska" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1200px-Flag_of_Iceland.svg.png"/>
-                </button>
-            </a>
-            <a id="stig" style="position: absolute; top: 12.5px; right: 20px; color: white; text-align: end;">
-            </a>
-            <a class="email" style="text-align: center; top: 5px; right: 10px; color: white;"><p><i>Contact:</i>   kammerkorinnhuldur@gmail.com</p>
-            </a>
-        </header>
-        <div class="section"> 
-            <canvas class="smake" id="game">
-                
-            </canvas>
-            
-            <div class="image-container">
-                <div id="image" style=""></div>
-            </div>
-            <!--- <button id="Spili"> Hallo </button>--->
-            <div id="texti">
-                <h1>WEBSITE COMING SOON<br><img src="images/HuldurLogo3.png"/></h1> 
-                <a id="numer"></a>
-                
-            </div>
-            
-        </div>
-        <div class="middle">
-            <table class="item">
-                <td id="um"><img align="left" style="padding: 0 15px 0 5px; width: 30vw;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Hrei%C3%B0ar_Ingi_%C3%9Eorsteinsson.png/1024px-Hrei%C3%B0ar_Ingi_%C3%9Eorsteinsson.png"/><h2 style=" font-family: 'lato-black';">Um Kammerkórinn Huldur</h2><p>
-Kammerkórinn Huldur var stofnaður af kórstjóranum og tónskáldinu Hreiðari Inga Þorsteinssyni haustið 2021. Samkvæmt íslenskum þjóðsögum og ljóðum er huldur náttúruvættur, sem býr í fossgljúfrum eða djúpt í hafi og knýr fram öldugang með söng og leik á langspil. Kórmeðlimir eru á aldrinum 18-26 ára. Markmið kórstarfsins er að kynna kórmeðlimum stefnur og strauma innan nýrrar kórtónlistar og síðan, með það veganesti, að virkja meðlimi til tónsköpunar, svo að úr verði vinnusmiðja í tónsmíðum fyrir ung og upprennandi tónskáld.</p>
-<br><br></td> 
-                <td style="padding: 0 0 0 0; max-width: 33vw; width: vh/vw"></td> 
-            </table>
-        </div>
-        <div id="section2">
-            
-        </div>
-        <footer id="footer">
-            <ul class="icons">
-						<li><a href="https://www.instagram.com/huldurkor/?__d=1%3Futm_source%3Dig_embed" target="_blank" class="icon brands circle fa-instagram"><span class="label">Instagram</span></a></li>
-						<li><a href="https://www.facebook.com/Huldur.Chamber.Choir" target="_blank" class="icon brands circle fa-facebook-f"><span class="label">Facebook</span></a></li>
-						<li><a href="#" target="_blank" class="icon brands circle fa-tiktok"><span class="label">TikTok</span></a></li>
-					</ul>
-					<ul class="copyright">
-						<li><h3>&copy; Huldur 2024 </h3></li>
-					</ul>
-        </footer>
-        <script>
-            var img1 = document.getElementById('image');
-            window.onscroll = function() {scrollFunction()};
-            document.getElementById('image').style = "background-image: url(images/HULDURBG.png);background-size: contain;background-position: center;background-repeat: repeat;";
-            function scrollFunction() {
-                if ( window.pageYOffset >  window.innerHeight+10) {
-                    document.getElementById('image').style = "background-image: url('https://scontent.frkv2-1.fna.fbcdn.net/v/t39.30808-6/438088906_2064066607302279_6603813663231616967_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=5f2048&_nc_ohc=yAanM8hVY5EQ7kNvgF6sy3s&_nc_ht=scontent.frkv2-1.fna&oh=00_AYAELZ5atH-QoSkHuPZ-XIfIevqbcX0kT9aiAXSSwtaeqw&oe=66656BC9'); background-size: cover;background-position: center;background-repeat: no-repeat;";
-                } else {
-                    document.getElementById('image').style = "background-image: url(images/HULDURBG.png);background-size: contain;background-position: center;background-repeat: repeat;";
-                }
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0; 
+      padding: 0;
+    }
 
-            
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                document.getElementById("header").style.height = "50px";
-                document.getElementById("stig").style.color = "transparent";  
-            } else {
-                document.getElementById("header").style.height = "0";
-                document.getElementById("stig").style.color = "white";
-            }
-                }
-        </script>
-        <script src="snake.js"></script>
-	</body>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: var(--green);
+    }
+
+    header {
+      background-color: var(--green);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      width: 100%;
+      max-width: 900px;
+      z-index: 100;
+      margin-bottom: 1rem;
+    }
+
+    header .language {
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    header .language img {
+      width: 24px;
+      height: auto;
+      border-radius: 3px;
+    }
+
+    header .contact {
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    main {
+      flex-grow: 1;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      color: var(--green);
+      margin-bottom: 0.25rem;
+    }
+    .hero .subtitle {
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+    .hero img {
+      max-width: 180px;
+      height: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    .about {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .about img {
+      width: 280px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .about-text {
+      flex: 1;
+      color: var(--black);
+    }
+    .about-text h2 {
+      font-family: 'Arial Black', Arial, sans-serif;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    form.contact-form {
+      background-color: var(--green);
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      color: var(--white);
+    }
+    form.contact-form h3 {
+      font-family: 'Arial Black', Arial, sans-serif;
+      margin-bottom: 1.5rem;
+      color: var(--gold);
+      text-align: center;
+    }
+    form.contact-form label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+    form.contact-form input,
+    form.contact-form textarea {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 1.2rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-family: Arial, sans-serif;
+    }
+    form.contact-form input {
+      background-color: var(--white);
+      color: var(--black);
+    }
+    form.contact-form textarea {
+      background-color: var(--white);
+      color: var(--black);
+      resize: vertical;
+    }
+    form.contact-form input:focus,
+    form.contact-form textarea:focus {
+      outline: 2px solid var(--gold);
+    }
+    form.contact-form button {
+      background-color: var(--gold);
+      color: var(--green);
+      border: none;
+      padding: 0.75rem 1.8rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      transition: background-color 0.3s ease;
+    }
+    form.contact-form button:hover {
+      background-color: #b39c30;
+    }
+
+    footer {
+      background-color: var(--black);
+      color: var(--gold);
+      text-align: center;
+      padding: 1.5rem 1rem;
+      width: 100%;
+      max-width: 900px;
+      margin-top: auto;
+    }
+
+    footer ul.social {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+      padding: 0;
+    }
+    footer ul.social li a {
+      color: var(--gold);
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    footer ul.social li a:hover {
+      color: var(--green);
+    }
+
+    /* Snake game styles */
+    #game {
+      display: block;
+      margin: 0 auto 1rem;
+      border: 3px solid var(--green);
+      background: #f0f0f0;
+    }
+
+    #score {
+      text-align: center;
+      font-weight: bold;
+      color: var(--green);
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      .about {
+        flex-direction: column;
+        text-align: center;
+      }
+      .about img {
+        width: 80vw;
+        margin: 0 auto;
+      }
+      form.contact-form button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+
+  <link rel="icon" type="image/png" href="icons/huldur%20cover%20icon.png" />
+</head>
+<body>
+  <header>
+    <a href="https://huldur.is" class="language" aria-label="Íslenska">
+      Íslenska
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/1200px-Flag_of_Iceland.svg.png" alt="Íslenska fáninn" />
+    </a>
+    <div class="contact"><i>Hafðu samband:</i> kammerkorinnhuldur@gmail.com</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>WEBSITE COMING SOON</h1>
+      <div class="subtitle">Vefsíða kemur fljótlega</div>
+      <img src="images/HuldurLogo3.png" alt="Huldur Logo" />
+    </section>
+
+    <section class="about">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Hrei%C3%B0ar_Ingi_%C3%9Eorsteinsson.png/1024px-Hrei%C3%B0ar_Ingi_%C3%9Eorsteinsson.png" alt="Hreiðar Ingi Þorsteinsson" />
+      <div class="about-text">
+        <h2>Um Kammerkórinn Huldur</h2>
+        <p>
+          Kammerkórinn Huldur var stofnaður af kórstjóranum og tónskáldinu Hreiðari Inga Þorsteinssyni haustið 2021. Samkvæmt íslenskum þjóðsögum og ljóðum er huldur náttúruvættur, sem býr í fossgljúfrum eða djúpt í hafi og knýr fram öldugang með söng og leik á langspil. Kórmeðlimir eru á aldrinum 18-26 ára. Markmið kórstarfsins er að kynna kórmeðlimum stefnur og strauma innan nýrrar kórtónlistar og síðan, með það veganesti, að virkja meðlimi til tónsköpunar, svo að úr verði vinnusmiðja í tónsmíðum fyrir ung og upprennandi tónskáld.
+        </p>
+      </div>
+    </section>
+
+    <section id="game-section" aria-label="Snake leikur">
+      <canvas id="game" width="600" height="400" aria-describedby="score"></canvas>
+      <div id="score" aria-live="polite">Stig: 0</div>
+    </section>
+
+    <section>
+      <form class="contact-form" aria-label="Hafðu samband form" action="send_mail.php" method="POST">
+        <h3>Hafðu samband</h3>
+        <label for="name">Nafn:</label>
+        <input type="text" id="name" name="name" placeholder="Skrifaðu nafnið þitt" required />
+
+        <label for="email">Netfang:</label>
+        <input type="email" id="email" name="email" placeholder="Skrifaðu netfangið þitt" required />
+
+        <label for="message">Skilaboð:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Skrifaðu skilaboðin þín" required></textarea>
+
+        <button type="submit">Senda</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <ul class="social">
+      <li><a href="https://www.instagram.com/huldurkor/?__d=1%3Futm_source%3Dig_embed" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i>Instagram</a></li>
+      <li><a href="https://www.facebook.com/Huldur.Chamber.Choir" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+      <li><a href="https://open.spotify.com/artist/2LccQzAgiVR8uBAHxsYxqR?si=YjTUg4EERfKbGO_jJm9IgQ" target="_blank" rel="noopener" aria-label="Spotify"><i class="fab fa-spotify"></i>Spotify</a></li>
+    </ul>
+    <p>© 2025 Kammerkórinn Huldur</p>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById('game');
+    const ctx = canvas.getContext('2d');
+
+    const scale = 20;
+    const rows = canvas.height / scale;
+    const cols = canvas.width / scale;
+
+    let snake;
+    let food;
+    let direction = { x: 1, y: 0 };
+    let gameInterval;
+    let score = 0;
+
+    class Snake {
+      constructor() {
+        this.body = [{ x: 0, y: 0 }];
+        this.length = 1;
+      }
+
+      draw() {
+        ctx.fillStyle = '#2a5d34'; // green
+        for (let part of this.body) {
+          ctx.fillRect(part.x, part.y, scale, scale);
+        }
+      }
+
+      update() {
+        const head = {
+          x: this.body[0].x + direction.x * scale,
+          y: this.body[0].y + direction.y * scale,
+        };
+
+        // Wrap around edges
+        if (head.x >= canvas.width) head.x = 0;
+        if (head.x < 0) head.x = canvas.width - scale;
+        if (head.y >= canvas.height) head.y = 0;
+        if (head.y < 0) head.y = canvas.height - scale;
+
+        this.body.unshift(head);
+
+        if (this.body.length > this.length) {
+          this.body.pop();
+        }
+      }
+
+      eat(food) {
+        const head = this.body[0];
+        if (head.x === food.x && head.y === food.y) {
+          this.length++;
+          return true;
+        }
+        return false;
+      }
+
+      checkCollision() {
+        const head = this.body[0];
+        for (let i = 1; i < this.body.length; i++) {
+          if (head.x === this.body[i].x && head.y === this.body[i].y) {
+            return true;
+          }
+        }
+        return false;
+      }
+    }
+
+    class Food {
+      constructor() {
+        this.x = 0;
+        this.y = 0;
+      }
+
+      pickLocation() {
+        this.x = Math.floor(Math.random() * cols) * scale;
+        this.y = Math.floor(Math.random() * rows) * scale;
+      }
+
+      draw() {
+        ctx.fillStyle = '#c9b037'; // gold
+        ctx.fillRect(this.x, this.y, scale, scale);
+      }
+    }
+
+    function updateScore() {
+      const scoreEl = document.getElementById('score');
+      scoreEl.textContent = 'Stig: ' + score;
+    }
+
+    function setup() {
+      snake = new Snake();
+      food = new Food();
+      food.pickLocation();
+      direction = { x: 1, y: 0 };
+      score = 0;
+      updateScore();
+      clearInterval(gameInterval);
+      gameInterval = setInterval(gameLoop, 100);
+    }
+
+    function gameLoop() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      food.draw();
+      snake.update();
+      snake.draw();
+
+      if (snake.eat(food)) {
+        score++;
+        updateScore();
+        food.pickLocation();
+      }
+
+      if (snake.checkCollision()) {
+        alert('Leikur búinn! Þú fékkst ' + score + ' stig. Smelltu á OK til að byrja aftur.');
+        setup();
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      const key = e.key.toLowerCase();
+      if (key === 'w' && direction.y !== 1) {
+        direction = { x: 0, y: -1 };
+      } else if (key === 's' && direction.y !== -1) {
+        direction = { x: 0, y: 1 };
+      } else if (key === 'a' && direction.x !== 1) {
+        direction = { x: -1, y: 0 };
+      } else if (key === 'd' && direction.x !== -1) {
+        direction = { x: 1, y: 0 };
+      }
+    });
+
+    setup();
+  </script>
+</body>
 </html>

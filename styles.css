@@ -1,0 +1,179 @@
+:root {
+  --gold: #c9b037; /* warm gold */
+  --green: #2a5d34; /* rich forest green */
+  --black: #121212; /* near black but softer */
+  --white: #fff;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0; 
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: var(--green);
+}
+
+header {
+  background-color: var(--green);
+  width: 100%;
+  max-width: 900px;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 6px;
+  margin-bottom: 2rem;
+}
+
+header .language {
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header .language img {
+  width: 24px;
+  height: auto;
+  border-radius: 3px;
+}
+
+header .contact {
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+main {
+  flex-grow: 1;
+  padding: 0 1rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.hero h1 {
+  font-size: 3rem;
+  color: var(--green);
+  margin-bottom: 1rem;
+}
+.hero img {
+  max-width: 180px;
+  height: auto;
+}
+
+.about {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 5rem;
+  color: var(--black);
+}
+.about img {
+  width: 280px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.about-text {
+  flex: 1;
+}
+.about-text h2 {
+  font-family: 'Arial Black', Arial, sans-serif;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+form.contact-form {
+  background-color: var(--green);
+  padding: 2rem;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  color: var(--white);
+  box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+}
+form.contact-form h3 {
+  font-family: 'Arial Black', Arial, sans-serif;
+  margin-bottom: 1.5rem;
+  color: var(--gold);
+  text-align: center;
+}
+form.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+form.contact-form input,
+form.contact-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+}
+form.contact-form input {
+  background-color: var(--white);
+  color: var(--black);
+}
+form.contact-form textarea {
+  background-color: var(--white);
+  color: var(--black);
+  resize: vertical;
+  min-height: 100px;
+}
+form.contact-form input:focus,
+form.contact-form textarea:focus {
+  outline: 2px solid var(--gold);
+}
+form.contact-form button {
+  background-color: var(--gold);
+  color: var(--green);
+  border: none;
+  padding: 0.75rem 1.8rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+form.contact-form button:hover {
+  background-color: #b39c30;
+}
+
+/* Snake game canvas */
+#game {
+  background-co
